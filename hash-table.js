@@ -11,27 +11,47 @@ class KeyValuePair {
 class HashTable {
 
   constructor(numBuckets = 4) {
-    // Your code here 
+
+    this.count = 0;
+
+    this.capacity = numBuckets;
+
+    this.data = new Array(this.capacity).fill(null);
+
   }
 
   hash(key) {
-    // Your code here 
+
+    let sha256Hash = sha256(key); // Compute the SHA-256 hash
+
+    let first8CharHash = sha256Hash.slice(0, 8); // Take the first 8 characters
+
+    return parseInt(first8CharHash, 16)
+
+
   }
 
   hashMod(key) {
-    // Your code here 
+
+    let sha256Hash = sha256(key); // Compute the SHA-256 hash
+
+    let first8CharHash = sha256Hash.slice(0, 8); // Take the first 8 characters
+
+    return parseInt(first8CharHash, 16) % this.data.length;
+
+
   }
 
   insertNoCollisions(key, value) {
-    // Your code here 
+    // Your code here
   }
 
   insertWithHashCollisions(key, value) {
-    // Your code here 
+    // Your code here
   }
 
   insert(key, value) {
-    // Your code here 
+    // Your code here
   }
 
 }
